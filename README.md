@@ -1,4 +1,4 @@
-# DigitSense — Handwritten Digit Recognition using CNN
+# DigitSense -- Handwritten Digit Recognition using CNN
 
 DigitSense is an end-to-end deep learning project that recognizes handwritten digits (0-9) using a Convolutional Neural Network (CNN) trained on the MNIST dataset.
 

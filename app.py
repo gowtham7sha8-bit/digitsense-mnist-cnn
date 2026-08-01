@@ -1,5 +1,5 @@
 """
-app.py — DigitSense Streamlit Demo App.
+app.py -- DigitSense Streamlit Demo App.
 
 A web-based demo for the DigitSense handwritten digit recognition model.
 Upload a PNG/JPG image of a handwritten digit to see the predicted digit,
@@ -28,14 +28,14 @@ from utils import preprocess_image
 MODEL_PATH = os.path.join(SCRIPT_DIR, "model", "digit_cnn.h5")
 RESULTS_DIR = os.path.join(SCRIPT_DIR, "results")
 
-# ── Page config ──────────────────────────────────────────────────────
+# -- Page config ------------------------------------------------------
 st.set_page_config(
-    page_title="DigitSense — Handwritten Digit Recognition",
-    page_icon="🔢",
+    page_title="DigitSense -- Handwritten Digit Recognition",
+    page_icon="[NUM]",
     layout="wide",
 )
 
-# ── Custom CSS ───────────────────────────────────────────────────────
+# -- Custom CSS -------------------------------------------------------
 st.markdown("""
 <style>
     .main-header {
@@ -69,16 +69,16 @@ def load_model():
     return tf.keras.models.load_model(MODEL_PATH)
 
 
-# ── Header ───────────────────────────────────────────────────────────
+# -- Header -----------------------------------------------------------
 st.markdown('<div class="main-header">', unsafe_allow_html=True)
-st.title("🔢 DigitSense")
+st.title("[NUM] DigitSense")
 st.markdown("**Handwritten Digit Recognition using CNN (MNIST)**")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# ── Sidebar ──────────────────────────────────────────────────────────
+# -- Sidebar ----------------------------------------------------------
 with st.sidebar:
-    st.header("📤 Upload Image")
-    st.markdown("Upload a **PNG** or **JPG** image of a handwritten digit (0–9).")
+    st.header("[UPLOAD] Upload Image")
+    st.markdown("Upload a **PNG** or **JPG** image of a handwritten digit (09).")
     uploaded_file = st.file_uploader(
         "Choose an image...",
         type=["png", "jpg", "jpeg"],
@@ -89,10 +89,10 @@ with st.sidebar:
     st.markdown(
         "DigitSense uses a Convolutional Neural Network (CNN) "
         "trained on the MNIST dataset (60,000 training images) "
-        "to recognize handwritten digits 0–9."
+        "to recognize handwritten digits 09."
     )
 
-# ── Main content ─────────────────────────────────────────────────────
+# -- Main content -----------------------------------------------------
 if uploaded_file is not None:
     # Load and display the uploaded image
     pil_image = Image.open(uploaded_file)
@@ -100,7 +100,7 @@ if uploaded_file is not None:
     col1, col2 = st.columns([1, 2])
 
     with col1:
-        st.subheader("📷 Uploaded Image")
+        st.subheader(" Uploaded Image")
         st.image(pil_image, width=200)
 
     with col2:
@@ -108,7 +108,7 @@ if uploaded_file is not None:
         processed, msg = preprocess_image(pil_image)
 
         if processed is None:
-            st.error(f"⚠️ {msg}")
+            st.error(f" {msg}")
         else:
             model = load_model()
             predictions = model.predict(processed, verbose=0)
@@ -126,14 +126,14 @@ if uploaded_file is not None:
             )
 
             # Confidence bar chart for all digits
-            st.subheader("📊 Confidence Scores")
+            st.subheader("[CHART] Confidence Scores")
             chart_data = {str(i): float(predictions[0][i]) for i in range(10)}
             st.bar_chart(chart_data)
 
     st.markdown("---")
 
-# ── Results Dashboard ────────────────────────────────────────────────
-st.header("📈 Model Performance Dashboard")
+# -- Results Dashboard ------------------------------------------------
+st.header("[CHART] Model Performance Dashboard")
 
 tab1, tab2, tab3 = st.tabs(["Training Curves", "Confusion Matrix", "Sample Predictions"])
 
@@ -158,9 +158,9 @@ with tab3:
     else:
         st.info("Sample predictions not available. Run `python src/train.py` first.")
 
-# ── Metrics display ──────────────────────────────────────────────────
+# -- Metrics display --------------------------------------------------
 metrics_path = os.path.join(RESULTS_DIR, "metrics.txt")
 if os.path.exists(metrics_path):
-    with st.expander("📋 Detailed Metrics", expanded=False):
-        with open(metrics_path, "r") as f:
+    with st.expander("[LIST] Detailed Metrics", expanded=False):
+        with open(metrics_path, "r", encoding="utf-8") as f:
             st.code(f.read(), language="text")

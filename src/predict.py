@@ -1,5 +1,5 @@
 """
-predict.py — DigitSense CLI prediction script.
+predict.py -- DigitSense CLI prediction script.
 
 Usage:
     python src/predict.py <image_path>

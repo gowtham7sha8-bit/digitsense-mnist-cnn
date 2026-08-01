@@ -15,7 +15,7 @@ The objective of this project is to build an end-to-end, working, and robust han
 The model is trained on the classic **MNIST dataset**, which contains:
 - **60,000** training images
 - **10,000** test images
-- Format: 28×28 pixel grayscale images of handwritten digits (0 through 9).
+- Format: 28x28 pixel grayscale images of handwritten digits (0 through 9).
 
 ## Methodology
 The core of DigitSense is a Convolutional Neural Network (CNN), a type of deep learning model specifically designed to excel at computer vision tasks. The CNN uses "convolutional layers" to automatically scan the image and detect spatial patterns, learning simple features like edges and curves early on, and combining them into complex shapes (like loops or crossed lines) in deeper layers. Max-pooling layers then compress the image to retain only the most important features, reducing computation and preventing overfitting. Finally, dense layers act as the decision-making unit, interpreting these extracted features and outputting the probabilities for each of the 10 possible digit classes.

@@ -1,5 +1,5 @@
 """
-utils.py — Shared image preprocessing for DigitSense.
+utils.py -- Shared image preprocessing for DigitSense.
 
 Provides a single preprocessing function used by both predict.py and app.py
 to ensure identical treatment of input images.
@@ -36,7 +36,7 @@ def preprocess_image(pil_image):
         Preprocessed image array ready for model.predict(), or None
         if the image appears blank (no digit detected).
     str
-        Status message — empty string on success, error description
+        Status message -- empty string on success, error description
         if no digit was detected.
     """
     # 1. Convert to grayscale
@@ -56,8 +56,8 @@ def preprocess_image(pil_image):
     bbox = binary_img.getbbox()
 
     if bbox is None:
-        # No non-zero pixels found — blank or near-blank image
-        return None, "No digit detected — the image appears blank or has insufficient contrast."
+        # No non-zero pixels found -- blank or near-blank image
+        return None, "No digit detected -- the image appears blank or has insufficient contrast."
 
     # Crop to bounding box
     cropped = img.crop(bbox)
