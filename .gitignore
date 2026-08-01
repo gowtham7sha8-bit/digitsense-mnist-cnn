@@ -1,0 +1,47 @@
+# DigitSense — Python .gitignore
+# Keep model/ and results/ committed
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.env/
+.venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# pytest / coverage
+.pytest_cache/
+htmlcov/
+.coverage
+
+# TensorFlow / Keras logs
+logs/
+*.tflite
+
+# NOTE: model/ and results/ are intentionally NOT ignored —
+# they contain the trained model and generated outputs that
+# should be committed to the repository.
