@@ -30,4 +30,6 @@ DigitSense is an end-to-end deep learning project that recognizes handwritten di
 ## Project Report
 For a detailed analysis of model performance, architecture, and limitations, please read the full report: [DigitSense_Project_Report.md](report/DigitSense_Project_Report.md).
 
-*(Note: Add a screenshot of the Streamlit app here if deploying to GitHub)*
+## App Screenshot
+![DigitSense Streamlit App](results/app_screenshot.png)
+

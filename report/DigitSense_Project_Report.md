@@ -56,6 +56,8 @@ However, several limitations remain:
 1. **Extremely messy, multi-digit, or very low-contrast images** may still be misclassified, as the bounding-box cropping assumes a single distinct subject.
 2. **Font/Printed Styles vs. Handwriting:** During verification, a non-MNIST test image of the digit "7" was generated using a standard computer font (`arial.ttf`). While the inversion and centering pipeline preprocessed the image perfectly, the model incorrectly predicted it as a "2" (51.6% confidence). This explicitly demonstrates that the model is highly optimized for human handwriting distributions and can fail when presented with rigid, printed-style typography that falls outside its training domain.
 
+![Non-MNIST Test Image (printed "7", misclassified as "2")](../results/test_drawn_digit.png)
+
 ## How to Run
 
 1. **Install requirements:**
